@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+h1, h2, h3, p, body {
+    font-family: 'Poppins', sans-serif;
+}
+/* Nav.css */
+
+.nav {
+  position: fixed;       /* stays at the top */
+  top: 0;
+  left: 0;
+  width: 100%;           /* full width */
+  height: 60px;          /* standard navbar height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #fff; /* white background */
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;         /* ensures it's always above content */
+}
+
+.nav p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #cc9c17;
+  margin: 0;
+}
+
+.toogle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}

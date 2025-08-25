@@ -1,0 +1,16 @@
+.google-btn {
+  width: 100%;
+  padding: 10px 15px;
+  margin-top: 15px;
+  background-color: #4285f4; /* Google blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.google-btn:hover {
+  background-color: #357ae8;
+}

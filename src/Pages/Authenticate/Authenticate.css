@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.authenticate {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #f4f4f9;
+}
+
+.authenticate-container {
+    display: flex;
+    width: 100%;
+    max-width: 900px; /* Responsive max width */
+    min-height: 500px; /* Minimum height to avoid squeezing */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.left-img {
+    flex: 1;
+    background-image: url(../../assets/images/premium_photo-1682551199022-3a44bf4debd7.jpeg);
+    background-size: cover;
+    background-position: center;
+    min-width: 0; /* Prevent image from forcing overflow */
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px; /* Increased padding for better spacing */
+    min-width: 300px; /* Ensure form doesn't collapse on small screens */
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between Sign Up and Login */
+    margin-bottom: 20px;
+}
+
+.option {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.option.active {
+    background-color: #ffa90a;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Increased gap for better spacing */
+    max-height: 100%; /* Prevent form from overflowing */
+}
+.divider{
+    text-align: center;
+}
+label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #ffa90a;
+    box-shadow: 0 0 5px rgba(255, 169, 10, 0.3);
+}
+
+form button {
+    background-color: #ffa90a;
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #c78407;
+}
+
+.switch-text {
+    margin-top: 15px;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+}
+
+.switch-text span {
+    color: #ffa90a;
+    cursor: pointer;
+    font-weight: 600;
+}
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-box {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.overlay-box p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: red;
+}
+
+.overlay-box button {
+    padding: 8px 20px;
+    border: none;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .authenticate-container {
+        flex-direction: column; /* Stack image and form vertically */
+        max-height: none; /* Allow height to adjust */
+    }
+
+    .left-img {
+        flex: none;
+        height: 200px; /* Fixed height for image on small screens */
+    }
+
+    .right-side {
+        padding: 20px;
+        min-width: 100%; /* Full width on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .right-side {
+        padding: 15px;
+    }
+
+    input, form button {
+        font-size: 14px; /* Smaller font for small screens */
+    }
+}
