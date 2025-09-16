@@ -15,6 +15,8 @@ if($conn->connect_error){
     die("Connection Failed " . $conn->connect_error);
 }
 
+
+
 //headers
 
 //tells the client to expect json

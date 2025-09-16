@@ -1,5 +1,5 @@
 import React from 'react';
-import './FirstPage.css';
+
 
 const FirstPage = ({ handleChange, value }) => {
   return (

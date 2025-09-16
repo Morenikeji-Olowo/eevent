@@ -3,6 +3,7 @@ import React from "react";
 import { auth, googleProvider } from "../../Config/firebaseConfig";
 import { toast } from "react-toastify"; // make sure you installed react-toastify
 import "react-toastify/dist/ReactToastify.css";
+import '../../styles/Google.css'
 import { useNavigate } from "react-router-dom";
 
 const Google = () => {
@@ -14,7 +15,7 @@ const Google = () => {
       const idToken = await user.getIdToken();
 
       const response = await fetch(
-        "http://localhost/eevent/src/BackEnd/src/Auth/googleLogin.php",
+        "http://localhost/React/Eevent/src/BackEnd/src/Auth/googleLogin.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

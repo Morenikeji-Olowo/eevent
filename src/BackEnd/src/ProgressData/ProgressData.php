@@ -40,6 +40,13 @@ $sql = "INSERT INTO user_profiles (user_id, username, displayName, bio, pfp)
             bio = VALUES(bio),
             pfp = VALUES(pfp)";
 
+$onBoardsql = "UPDATE users SET has_onboarded = TRUE WHERE id = ?";
+$onboardstmt = $conn->prepare($onBoardsql);
+$onboardstmt->bind_param("i", $user_id);
+$onboardstmt->execute();
+$onboardstmt->close();
+
+
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("issss", $user_id, $username, $displayName, $bio, $pfpPath);
 

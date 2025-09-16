@@ -1,5 +1,5 @@
 import React from 'react';
-import './LastPage.css';
+import '../../../styles/LastPage.css';
 
 const LastPage = ({ handleFileChange, pfp }) => {
   return (

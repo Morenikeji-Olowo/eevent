@@ -1,31 +1,39 @@
 import React, { useState } from "react";
+import "../../styles/DashBoard.css";
+import Nav from "../../Components/DashBoard/Nav";
+import LeftSide from "../../Components/DashBoard/LeftSide";
+import RightSide from "../../Components/DashBoard/RightSide";
 import { Outlet } from "react-router-dom";
-import Nav from "../../Components/DashBoard/Nav/Nav";
-import SideBar from "../../Components/DashBoard/SideBar/SideBar";
-import "./DashBoard.css";
+import RightToogleBtn from "../../Components/RightToogleBtn";
+import { useAtom } from "jotai";
+import {rightSideCollapsed } from "../../utils/jotai/atoms";
 
 const DashBoard = () => {
-  const [toogle, setToogle] = useState(false);
-
-const handleToogle = () => {
-  setToogle(prev => !prev); // toggles between true/false
-};
+  const [collapsed, setCollapsed] = useAtom(rightSideCollapsed);
 
   return (
-    <div className="dashboard">
-      <div className="nav">
-        <Nav  handleToogle={handleToogle} />
+    <>
+      <div className="nav-bar">
+        <Nav />
       </div>
-      <div className="content-wrapper">
-        <div className={`side-bar ${toogle === true ? "active" : "hide"} `}>
-          <SideBar />
-              </div>
-              
-        <div className="main-content">
+
+      <div className="dashboard-container">
+        <div className="left-side-dashboard">
+          <LeftSide />
+        </div>
+        
+        <div className="middle-side">
           <Outlet />
         </div>
+        <RightToogleBtn/>
+
+        {!collapsed && (
+          <div className="right-side-dashboard">
+            <RightSide />
+          </div>
+        )}
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,0 +1,248 @@
+/* Center everything */
+.admin-login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* The card */
+.admin-login-card {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  width: 560px;
+  text-align: center;
+}
+
+/* Title */
+.admin-login-title {
+  margin-bottom: 1.5rem;
+  color: black;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+/* Input group */
+.admin-input-group {
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+
+.admin-input-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 400;
+}
+
+.admin-input-group input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.admin-input-group input:focus {
+  border-color: #ffd000;
+}
+
+/* Login button */
+.admin-login-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: #ffbb00;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.admin-login-btn:hover {
+  background: #0056b3;
+}
+
+
+
+
+
+
+.pending-events-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 90vh; /* so it can scroll */
+  display: flex;
+  flex-direction: column;
+}
+
+.pending-title {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.pending-title span {
+  color: #0077ff;
+}
+
+.all-pending-events {
+  flex: 1;
+  overflow-y: auto; /* scrollable list */
+  padding-right: 6px;
+}
+
+.pending-event {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
+}
+
+
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.event-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.event-category {
+  font-size: 14px;
+  color: #777;
+}
+
+.event-desc {
+  margin: 8px 0 12px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.organizer-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.organizer-pfp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.organizer-email {
+  font-size: 13px;
+  color: #666;
+}
+
+
+
+
+.event-pend-overlay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.event-pend-overlay {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: popIn 0.2s ease-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.pend-image-carousel {
+  flex: 1; /* take remaining space */
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.event-pend-overlay h3{
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.overlay-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: auto; /* keeps buttons pinned to bottom */
+}
+
+.approve-btn,
+.reject-btn,
+.close-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.approve-btn {
+  background: #28a745;
+  color: white;
+}
+
+.approve-btn:hover {
+  background: #218838;
+}
+
+.reject-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.reject-btn:hover {
+  background: #c82333;
+}
+
+.close-btn {
+  background: #6c757d;
+  color: white;
+}
+
+.close-btn:hover {
+  background: #5a6268;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

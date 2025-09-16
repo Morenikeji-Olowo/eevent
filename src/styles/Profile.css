@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+h1, h2, h3, p, body {
+    font-family: 'Poppins', sans-serif;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Profile Card */
+.profile-card {
+    padding: 40px 64px;
+    display: flex;
+    gap: 64px;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(255,255,255,0.85);
+    border-radius: 36px;
+    backdrop-filter: blur(8px);
+}
+
+/* Profile Image */
+.profile-image img {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #848588;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+/* Profile Details */
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.profile-details h2 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+/* Interactions */
+.interactions {
+    display: flex;
+    gap: 32px;
+    padding: 16px 0;
+}
+.interactions-item {
+    border-radius: 16px;
+    padding: 16px 24px;
+    text-align: center;
+    min-width: 90px;
+}
+.interactions-item h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: black
+}
+.interactions-item p {
+    font-size: 1rem;
+    color: #888;
+    margin-top: 4px;
+}
+
+/* Edit Button */
+.edit-button {
+    padding: 18px 32px;
+    border: none;
+    border-radius: 24px;
+    background:  #722F37;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.edit-button:hover {
+    background:  #581b22;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+/* Highlights */
+.highlight-section h2 {
+    margin-top: 15px;
+    margin-left: 44px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: #4e4e4e;
+}
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: 34px;
+}
+.highlight-circle {
+    background: linear-gradient(135deg, #54141f 60%, #661717 100%);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-left: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.highlight-plus {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* Progress Bar */
+.progress-bar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 32px;
+}
+.progress-bar .icon {
+  color: #722F37;
+  font-size: 2.2rem; 
+  padding: 9px 11px;
+  border-radius: 14px; 
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+.progress-bar .icon.active{
+    color: grey;
+}

@@ -1,0 +1,74 @@
+
+/* Overlay Styling - Reuse your previous .overlay styles */
+.overlay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  padding: 0px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 370px;
+  top: 100px;
+  animation: popIn 0.2s ease-out;
+}
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.overlay-image {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.overlay-caption {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.overlay-date {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+.left-side-profile{
+    display: flex;
+    flex-direction: column;
+}
+.left-side-profile img{
+    width: 300px;
+}

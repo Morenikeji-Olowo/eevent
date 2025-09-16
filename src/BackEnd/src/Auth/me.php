@@ -1,5 +1,10 @@
 <?php
-// 1) If there is no user info in the session, say "not authenticated"
+session_start();
+
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Credentials: true");
+header("Content-Type: application/json");
+
 if (!isset($_SESSION['user'])) {
   echo json_encode([
     'authenticated' => false
@@ -7,8 +12,7 @@ if (!isset($_SESSION['user'])) {
   exit;
 }
 
-// 2) Otherwise, return the user info we stored earlier
 echo json_encode([
   'authenticated' => true,
-  'user' => $_SESSION['user']
+  'user' => $_SESSION['userId'] // This could be an array with user_id, username, pfp, etc.
 ]);

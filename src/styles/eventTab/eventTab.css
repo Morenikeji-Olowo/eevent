@@ -1,0 +1,73 @@
+
+
+/* Container for all posts */
+.event-tab-container {
+    padding-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding: 20px;
+  border-radius: 0;
+}
+
+/* Each event card should look like just the image */
+.event-tab-card {
+  background: transparent; /* remove white background */
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: auto; /* let image height define card height */
+  box-shadow: none; /* remove white-card shadow */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-tab-card:hover {
+  transform: scale(1.02);
+}
+
+/* Image */
+
+/* Caption + date */
+.event-tab-info{
+  padding: 10px;
+}
+
+.event-tab-caption{
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.post-date {
+  font-size: 12px;
+  color: #888;
+}
+
+.no-posts {
+  text-align: center;
+  font-style: italic;
+  color: #aaa;
+  margin-top: 20px;
+}
+
+.unstyled-button {
+  all: unset;
+  cursor: pointer;
+  display: block; 
+  width: 100%; 
+}
+
+
+
+
+
+
+
+
+

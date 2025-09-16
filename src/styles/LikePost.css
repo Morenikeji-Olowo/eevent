@@ -1,0 +1,71 @@
+.likes-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.view-likes{
+    cursor: pointer;
+}
+.likes-overlay {
+  background: white;
+  border-radius: 12px;
+  width: 50%;
+  max-width: 550px;
+  padding: 20px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 370px;
+  top: 100px;
+  animation: popIn 0.2s ease-out;
+}
+
+.likes-overlay h2{
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.each-like{
+    height: 90px;
+    display: flex;
+    gap: 12px;
+}
+.each-like img{
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.each-like-text{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.each-like-text p{
+    font-weight: bold;
+    color: black;
+}
+.all-likes{
+    height:140%;
+}
+

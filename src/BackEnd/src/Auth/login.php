@@ -2,16 +2,18 @@
 session_start();
 include '../../../Config/phpDbConfig.php';
 
-// Allow requests from frontend & send cookies
+// CORS headers
 header("Access-Control-Allow-Origin: http://localhost:5173");
-header("Access-Control-Allow-Credentials: true"); 
+header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept");
 
+// Handle preflight OPTIONS request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
+
 
 $data = json_decode(file_get_contents("php://input"), true);
 
@@ -67,6 +69,19 @@ if (!password_verify($password, $user['password'])) {
 
 // Store user session
 $_SESSION['userId'] = $user['id'];
+$_SESSION['user'] = [
+    "name" => $user['name'],
+    "email" => $user['email']
+];
+
+$userId = $_SESSION['userId'];
+$stmt = $conn->prepare("SELECT has_onboarded FROM users WHERE id = ?");
+$stmt->bind_param("i", $userId);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+
+$hasOnboarded = (bool)$row['has_onboarded']; // cast to bool for clean JSON
 
 http_response_code(200);
 echo json_encode([
@@ -76,7 +91,8 @@ echo json_encode([
         "id" => $user['id'],
         "name" => $user['name'],
         "email" => $user['email']
-    ]
+    ],
+    "hasOnBoarded"=>$hasOnboarded
 ]);
 
 $stmt->close();

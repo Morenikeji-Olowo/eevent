@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.post-create-container {
+  max-width: 100%;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #ebf6f7;
+  border-radius: 16px;
+  box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1);
+}
+.header-text h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: #000000;
+}
+.image-upload-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.upload-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.upload-icon {
+    display: flex;
+    gap: 20px;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.upload-icon:hover {
+  color: #111;
+}
+
+.image-preview img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+  object-fit: cover;
+  height: auto;
+}
+
+.caption-section textarea {
+  width: 100%;
+  height: 120px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+.caption-section textarea:focus {
+  border-color: #3897f0;
+  outline: none;
+}
+
+.post-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #3897f0;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.post-button:hover {
+  background-color: #2a7bdc;
+}
+.upload-icon p{
+    font-weight: 300;
+}

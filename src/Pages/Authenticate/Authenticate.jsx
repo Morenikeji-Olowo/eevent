@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./Authenticate.css";
+import '../../styles/Authenticate.css';
+import '../../App.css';
 import Google from "../../Components/SignUpOptions/Google";
 import { useNavigate } from "react-router-dom";
 
@@ -39,7 +40,7 @@ const Authenticate = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost/eevent/src/BackEnd/src/Auth/signUp.php",
+        "http://localhost/React/eevent/src/BackEnd/src/Auth/signUp.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -70,11 +71,11 @@ const Authenticate = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost/eevent/src/BackEnd/src/Auth/login.php",
+        "http://localhost/React/eevent/src/BackEnd/src/Auth/login.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          credentials: "include", // <-- important for PHP session cookies
+          credentials: "include", 
           body: JSON.stringify(loginData),
         }
       );
@@ -83,7 +84,11 @@ const Authenticate = () => {
 
       if (!response.ok) {
         setErrors(phpResponse.errors || {});
-      } else {
+      } 
+      else if(phpResponse.hasOnBoarded === true){
+        navigate("/dashBoard");
+      }
+      else {
         alert(phpResponse.message);
         setErrors({});
         navigate("/getDetails");
@@ -98,6 +103,7 @@ const Authenticate = () => {
   return (
     <div className="authenticate">
       <div className="authenticate-container">
+
         {overlayError && (
           <div className="overlay">
             <div className="overlay-box">
@@ -107,8 +113,10 @@ const Authenticate = () => {
           </div>
         )}
 
-        <div className="left-img"></div>
-        <div className="right-side">
+
+        <div className="right-side-authenticate">
+                  <h2>Eevent</h2>
+
           <div className="options">
             <p
               className={`option ${currentState === "Sign Up" ? "active" : ""}`}

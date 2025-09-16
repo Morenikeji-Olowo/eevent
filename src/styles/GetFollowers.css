@@ -1,0 +1,74 @@
+.view-followers {
+  cursor: pointer;
+}
+
+.followers-list-overlay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.followers-list-overlay {
+  background: white;
+  border-radius: 12px;
+  width: 50%;
+  max-width: 550px;
+  padding: 20px;
+  max-height: 500px;        /* limit modal height */
+  overflow-y: auto;         /* enable scrolling inside */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: popIn 0.2s ease-out;
+}
+.followingList{
+  overflow-y: scroll;
+  scrollbar-width: none;
+  scroll-behavior:smooth ;
+}
+
+/* each item */
+.each-follower {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.each-follower img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.follower-info h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #222;
+}
+
+.follower-info p {
+  font-size: 14px;
+  color: #555;
+  margin: 2px 0 0 0;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

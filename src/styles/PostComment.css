@@ -1,0 +1,99 @@
+.comment-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.view-comments{
+  cursor: pointer;
+}
+
+.comment-overlay {
+  background: white;
+  border-radius: 12px;
+  width: 50%;
+  max-width: 550px;
+  padding: 20px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 370px;
+  top: 100px;
+  animation: popIn 0.2s ease-out;
+}
+
+.comment-overlay h2{
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.post-comment-controls{
+    height: 90px;
+    display: flex;
+    gap: 5px;
+}
+
+.comment-overlay input[type="text"],
+.comment-overlay input[type="file"] {
+  padding: 15px 23px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 11px;
+}
+
+.comment-overlay button {
+  padding: 12px 29px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(7, 57, 174);
+  color: white;
+  cursor: pointer;
+}
+
+.each-comment{
+    height: 90px;
+    display: flex;
+    gap: 12px;
+}
+.each-comment img{
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.each-comment-text{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.each-comment-text p{
+    font-weight: bold;
+    color: black;
+}
+.each-comment-text h3{
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.all-comments{
+    height:140%;
+}
+

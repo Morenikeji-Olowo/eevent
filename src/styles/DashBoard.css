@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 🔝 Navbar */
+.nav-bar {
+  height: 99px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* 🧱 Dashboard Container */
+.dashboard-container {
+  display: flex;
+  height: calc(100vh - 99px);
+  overflow: hidden;
+}
+
+/* 📍 Middle Feed */
+.middle-side {
+
+  flex: 2;
+  padding: 24px;
+  margin: 16px 12px; /* Adds space around for the curve to show */
+  background-color: #fff; /* Makes the curve visible */
+  border-radius: 20px;
+  overflow-y: auto;
+}
+
+
+/* 📌 Left Sidebar */
+.left-side-dashboard {
+  width: 380px;
+  background-color: #ffffff;
+  padding: 24px 20px;
+  overflow-y: auto;
+}
+
+/* 📎 Right Sidebar */
+.right-side-dashboard {
+  width: 350px;
+  background-color: #ab8e8e;
+  padding: 24px 20px;
+  overflow-y: auto;
+transition: ease-in;
+}
+
+
+/* 🎛 Scrollbar Styling */
+.left-side::-webkit-scrollbar,
+.right-side::-webkit-scrollbar,
+.middle-side::-webkit-scrollbar {
+  width: 6px;
+}
+
+.left-side::-webkit-scrollbar-thumb,
+.right-side::-webkit-scrollbar-thumb,
+.middle-side::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 3px;
+}
+
+
+
+.left-sidebar {
+    scrollbar-width: none;
+    margin-top: 0;
+  width: 320px;
+  background-color: #fff;
+
+  padding: 24px;
+    padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.profile-section {
+  text-align: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border: 3px solid #4a90e2;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bio-data {
+  font-size: 14px;
+  color: #777;
+  margin-top: 8px;
+}
+
+
+.highlight-items{
+    display: flex;
+    gap: 10px;
+}
+
+.highlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.highlight-item p {
+    font-size: 12px;
+    color: #555;
+}
+.highlight-item img{
+    width: 100%;
+    border-radius: 8px;
+    height: 100px;
+    object-fit: cover;
+    box-shadow: 0 2.4px 2px rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
+  font-size: 13px;
+}
+.stats span{
+  display: flex;
+  gap: 4px;
+}
+
+.nav-links{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.nav-links button {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.nav-links button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Active or selected button */
+.nav-links button.active {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.logout button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.all-post {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 20px;
+  max-width: 100%; /* keeps posts centered and not full-width */
+  margin: 0 auto; /* centers feed */
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Main post card */
+.post-container {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+
+
+/* Header section (pfp, username, follow button) */
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-header img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info {
+  flex: 1;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info h2 {
+  font-size: 15px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.user-info p {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+
+
+/* Caption */
+.post-text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 5px;
+}
+
+/* Image */
+.image-wrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.post-image-feed {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Actions (likes, views, comments) */
+.post-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.social span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #555;
+}
+
+.ticket-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+
+}
+
+.ticket-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+

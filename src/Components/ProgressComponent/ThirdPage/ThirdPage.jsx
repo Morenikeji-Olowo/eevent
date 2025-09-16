@@ -1,5 +1,5 @@
 import React from 'react';
-import './ThirdPage.css';
+import '../../../styles/ThirdPage.css';
 
 const ThirdPage = ({ handleChange, value }) => {
   return (

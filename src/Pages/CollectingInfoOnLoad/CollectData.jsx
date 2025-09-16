@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
-import './CollectData.css';
+import React, { useState, useRef } from 'react';
+
+import '../../styles/CollectData.css';
 import FirstPage from '../../Components/ProgressComponent/FirstPage/FirstPage';
 import SecondPage from '../../Components/ProgressComponent/SecondPage/SecondPage';
 import ThirdPage from '../../Components/ProgressComponent/ThirdPage/ThirdPage';
 import LastPage from '../../Components/ProgressComponent/LastPage/LastPage';
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify"; // make sure you installed react-toastify
+import "react-toastify/dist/ReactToastify.css";
 
 const CollectData = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     username: '',
     displayName: '',
@@ -16,12 +21,55 @@ const CollectData = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
   // Handle text inputs
-  const handleChange = (e) => {
+ 
+
+  const checkUsername = async (username) => {
+  try {
+    const res = await fetch(
+      "http://localhost/React/eevent/src/BackEnd/src/ProgressData/CheckUsername.php",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username }),
+        credentials: "include",
+      }
+    );
+    const data = await res.json();
+    return data.success; // true if valid
+  } catch (err) {
+    console.error(err);
+    return false;
+  }
+};
+const typingTimeout = useRef(null);
+
+const handleChange = (e) => {
+  const { name, value } = e.target;
+
+  if (name === "username") {
+    // clear previous timeout
+    if (typingTimeout.current) clearTimeout(typingTimeout.current);
+
+    // set new timeout
+    typingTimeout.current = setTimeout(async () => {
+      const valid = await checkUsername(value);
+      if (!valid) {
+        toast.error("Username already taken!");
+        return; // don't save
+      }
+
+      setUserData({
+        ...userData,
+        [name]: value,
+      });
+    }, 500);
+  } else {
     setUserData({
       ...userData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
-  };
+  }
+};
 
   // Handle file input
   const handleFileChange = (e) => {
@@ -57,7 +105,7 @@ const CollectData = () => {
         formData.append(key, userData[key]);
       }
 
-      const response = await fetch('http://localhost/eevent/src/BackEnd/src/ProgressData/ProgressData.php', {
+      const response = await fetch('http://localhost/React/eevent/src/BackEnd/src/ProgressData/ProgressData.php', {
         method: 'POST',
         body: formData,
         credentials: 'include',
@@ -65,10 +113,12 @@ const CollectData = () => {
 
       const data = await response.json();
       console.log(data);
-      alert(data.message || 'Data submitted successfully!');
+      toast.success(data.message || 'Data submitted successfully!');
+      navigate('/dashBoard');
+      
     } catch (error) {
       console.error(error);
-      alert('Submission failed!');
+      toast.error('Submission failed!');
     }
   };
 

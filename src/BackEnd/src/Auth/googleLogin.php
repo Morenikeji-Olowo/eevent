@@ -40,7 +40,6 @@ try {
         $stmt->execute();
         $message = "Welcome back!";
     } else {
-        // New user — signup
         $stmt = $conn->prepare("INSERT INTO users (uid, name, email) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $uid, $name, $email);
         $stmt->execute();
@@ -52,7 +51,6 @@ try {
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
 
-    // Send a single JSON response
     echo json_encode([
         "status" => "success",
         "message" => $message

@@ -1,0 +1,164 @@
+.highlight-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 370px;
+  top: 100px;
+  animation: popIn 0.2s ease-out;
+}
+.overlay h2{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.overlay input[type="text"],
+.overlay input[type="file"] {
+  padding: 15px 23px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 11px;
+}
+
+.overlay button {
+  padding: 12px 29px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(7, 57, 174);
+  color: white;
+  cursor: pointer;
+}
+
+
+.preview-container {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+form{
+    width: 400px;
+}
+.preview-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+.add-btn button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px dashed #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #555;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hightlight-item-container{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    
+}
+.hightlight-item-container img{
+    width: 100px;
+    object-fit: cover;
+    height: 90px;
+    border-radius: 12px;
+}
+.hightlight-item-container h3{
+    font-weight: 400;
+    font-size: 17px;
+}
+.highlight-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+
+  gap: 12px;
+  overflow-x: auto;     
+  overflow-y: hidden;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 4px;
+
+  scroll-behavior: smooth;           /* smooth scroll */
+  -webkit-overflow-scrolling: touch; /* better iOS scrolling */
+  scrollbar-width: none;             /* Firefox thin bar */
+  scrollbar-color: #ccc transparent;
+}
+
+/* Optional: pretty scrollbar on WebKit */
+.highlight-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.highlight-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+.highlight-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Each item should not shrink; keep a tidy column */
+.hightlight-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto; /* don't let items stretch or shrink */
+}
+
+/* Avatar-style image */
+.hightlight-item-container img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Title below the circle */
+.hightlight-item-container h3 {
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  max-width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
